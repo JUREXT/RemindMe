@@ -15,10 +15,6 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class NotificationBroadCastReceiver : HiltBroadcastReceiver() {
 
-    companion object {
-        const val TAG = "NotificationBroadCast"
-    }
-
     @Inject
     lateinit var reminderWorkManager: ReminderWorkManagerRepository
 
@@ -26,12 +22,10 @@ class NotificationBroadCastReceiver : HiltBroadcastReceiver() {
         super.onReceive(context, intent)
         when (intent.action) {
             context.getString(R.string.complete_action) ->
-                reminderWorkManager.cancelWorkRequest(
-                    context,
-                    intent.getStringExtra(context.getString(R.string.worker_tag)) ?: ""
-                )
+                reminderWorkManager
+                    .cancelWorkRequest(context,intent.getStringExtra(context.getString(R.string.worker_tag)) ?: "")
             context.getString(R.string.ok_action) -> {
-
+                // FIXME
             }
             else -> Log.i(TAG, "Nothing to Perform this Action ${intent.action}")
         }
@@ -39,6 +33,10 @@ class NotificationBroadCastReceiver : HiltBroadcastReceiver() {
         with(NotificationManagerCompat.from(context)) {
             cancel(intent.getIntExtra(Constants.NOTIFICATION_ID, -1))
         }
+    }
+
+    companion object {
+        const val TAG = "NotificationBroadCast"
     }
 }
 

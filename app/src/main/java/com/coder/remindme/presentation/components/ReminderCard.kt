@@ -1,4 +1,4 @@
-package com.coder.remindme.presentation
+package com.coder.remindme.presentation.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -35,7 +35,6 @@ fun ReminderCard(reminder: Reminder, onRemoveClick: (Reminder) -> Unit) {
             ZoneId.systemDefault()
         )
     )
-
     Column(
         horizontalAlignment = Alignment.Start, modifier = Modifier
             .background(
@@ -51,10 +50,18 @@ fun ReminderCard(reminder: Reminder, onRemoveClick: (Reminder) -> Unit) {
                 contentDescription = "Cross"
             )
         }
-        Text(text = reminder.title, color = Color.White, fontWeight = FontWeight.Bold, fontSize = 25.sp)
+        Text(
+            text = reminder.title,
+            color = Color.White,
+            fontWeight = FontWeight.Bold,
+            fontSize = 25.sp
+        )
         Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
             Text(text = reminder.description, color = Color.White, fontWeight = FontWeight.Bold)
-            Text(text = (if (reminder.hasCompleted) "DONE" else "NOT DONE YET"), color = Color.White)
+            Text(
+                text = (if (reminder.hasCompleted) "DONE" else "NOT DONE YET"),
+                color = Color.White
+            )
         }
 
         Spacer(modifier = Modifier.height(10.dp))
@@ -66,3 +73,21 @@ fun ReminderCard(reminder: Reminder, onRemoveClick: (Reminder) -> Unit) {
     }
 }
 
+@Preview
+@Composable
+private fun PreviewReminderCard() {
+    ReminderCard(
+        reminder = Reminder(
+            id = 1,
+            title = "title",
+            description = "description",
+            reminderStart = Instant.now(),
+            reminderEnd = Instant.now().plusMillis(5000),
+            remindType = RemindType.DAILY,
+            hasCompleted = false,
+            completedOn = Instant.now(),
+            hasCanceled = false
+        ),
+        onRemoveClick = {}
+    )
+}

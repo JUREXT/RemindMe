@@ -1,4 +1,4 @@
-package com.coder.remindme.presentation.viewmodel
+package com.coder.remindme.presentation.screens.viewmodel
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -20,7 +20,6 @@ import javax.inject.Inject
 class RemindersViewModel @Inject constructor(
     private val remindersRepository: ReminderUseCases
 ) : ViewModel() {
-
 
     var reminderListState by mutableStateOf<Resource<List<Reminder>>>(Resource.Loading<List<Reminder>>())
 

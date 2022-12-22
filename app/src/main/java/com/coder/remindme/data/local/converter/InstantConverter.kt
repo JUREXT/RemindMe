@@ -1,7 +1,5 @@
 package com.coder.remindme.data.local.converter
 
-import android.os.Build
-import androidx.annotation.RequiresApi
 import androidx.room.TypeConverter
 import java.time.Instant
 import java.time.LocalDate

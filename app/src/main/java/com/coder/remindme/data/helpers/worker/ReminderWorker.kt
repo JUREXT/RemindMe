@@ -5,8 +5,8 @@ import androidx.hilt.work.HiltWorker
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
 import com.coder.remindme.R
-import com.coder.remindme.data.local.dao.ReminderDao
 import com.coder.remindme.data.helpers.notification.NotificationHelper
+import com.coder.remindme.data.local.dao.ReminderDao
 import com.coder.remindme.data.local.entity.ReminderEntity
 import com.coder.remindme.domain.model.Notification
 import com.coder.remindme.domain.model.RemindType
@@ -28,8 +28,6 @@ class ReminderWorker @AssistedInject constructor(
     private val reminderWorkManager = ReminderWorkManagerRepository(reminderDao)
 
     override suspend fun doWork(): Result {
-
-
         val reminderId =
             inputData.getLong(appContext.getString(R.string.reminder_instance_key), -1)
         if (reminderId == -1L) {
@@ -39,7 +37,7 @@ class ReminderWorker @AssistedInject constructor(
 
         LocalDateTime.ofInstant(reminder.reminderStart, ZoneOffset.UTC)
 
-        notificationHelper.removeNotification(reminderId.toInt(),appContext)
+        notificationHelper.removeNotification(reminderId.toInt(), appContext)
 
         notificationHelper.createNotification(
             appContext,

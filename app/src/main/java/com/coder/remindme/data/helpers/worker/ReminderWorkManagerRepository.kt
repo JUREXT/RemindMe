@@ -19,21 +19,21 @@ import javax.inject.Inject
 
 class ReminderWorkManagerRepository @Inject constructor(private val reminderDao: ReminderDao) {
 
-    val HOURS_PER_DAY = 24
+    private val HOURS_PER_DAY = 24
 
     /**
      * Minutes per hour.
      */
-    val MINUTES_PER_HOUR = 60
+    private val MINUTES_PER_HOUR = 60
 
     /**
      * Minutes per day.
      */
-    val MINUTES_PER_DAY = MINUTES_PER_HOUR * HOURS_PER_DAY
+    private val MINUTES_PER_DAY = MINUTES_PER_HOUR * HOURS_PER_DAY
 
-    val DAYS_PER_WEEK = 7
+    private val DAYS_PER_WEEK = 7
 
-    val HOURS_PER_WEEK = DAYS_PER_WEEK * HOURS_PER_DAY
+    private val HOURS_PER_WEEK = DAYS_PER_WEEK * HOURS_PER_DAY
 
     fun createWorkRequestAndEnqueue(
         context: Context,

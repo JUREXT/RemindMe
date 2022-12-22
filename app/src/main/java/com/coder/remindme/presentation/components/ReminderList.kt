@@ -1,6 +1,5 @@
-package com.coder.remindme.presentation
+package com.coder.remindme.presentation.components
 
-import android.util.Log
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.background
@@ -21,7 +20,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.coder.core.util.Constants
 import com.coder.core.util.Resource
 import com.coder.remindme.domain.model.Reminder
 

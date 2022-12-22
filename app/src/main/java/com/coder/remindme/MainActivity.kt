@@ -7,8 +7,8 @@ import android.os.Bundle
 import android.view.WindowManager
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import com.coder.remindme.presentation.Navigation
-import com.coder.remindme.ui.theme.RemindMeTheme
+import com.coder.remindme.presentation.navigation.Navigation
+import com.coder.remindme.presentation.theme.RemindMeTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

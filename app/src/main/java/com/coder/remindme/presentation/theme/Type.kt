@@ -1,4 +1,4 @@
-package com.coder.remindme.ui.theme
+package com.coder.remindme.presentation.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle

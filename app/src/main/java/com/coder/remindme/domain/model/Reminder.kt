@@ -14,9 +14,7 @@ data class Reminder(
     val hasCanceled: Boolean = false
 )
 
-
-
-enum class RemindType{
+enum class RemindType {
     HOURLY,
     DAILY,
     WEEKLY,
